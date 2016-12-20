@@ -3,7 +3,7 @@ package com.vliux;
 public class Main {
 
     public static void main(String[] args) {
-        selection();
+        LongestPalindromicSubstr.lps();
     }
 
     private static void selection(){
