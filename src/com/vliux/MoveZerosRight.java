@@ -5,10 +5,12 @@ import java.util.List;
 
 /**
  * Created by vliux on 12/31/16.
+ * Given an array of ints = [6, 4, 0, 5, 0, 0, 0, 1, 0] move all non zero numbers to the left and zeros to the right.
+ * Can you improve your answer to O(n)?
  */
 public class MoveZerosRight {
     public static void main(){
-        for(final int v : move(new int[]{99, 98, 7, 0, 66, 156, 0, 0, 34})){
+        for(final int v : move(new int[]{6, 4, 0, 5, 0, 0, 0, 1, 0})){
             System.out.println(v);
         }
     }
@@ -42,5 +44,4 @@ public class MoveZerosRight {
         a[indexA] = a[indexB];
         a[indexB] = vA;
     }
-
 }
