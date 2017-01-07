@@ -3,7 +3,7 @@ package com.vliux;
 public class Main {
 
     public static void main(String[] args) {
-        ReverseSingleLinkedList.main();
+        LongestCommonSubstring.exec();
     }
 
     private static void selection(){

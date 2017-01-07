@@ -22,7 +22,7 @@ public class ReverseSingleLinkedList {
         }
     }
 
-    private static SingleLinkedNode reverse(final SingleLinkedNode root){
+    public static SingleLinkedNode reverse(final SingleLinkedNode root){
         SingleLinkedNode n = root.next;
         SingleLinkedNode rl = root;
         root.next = null;
