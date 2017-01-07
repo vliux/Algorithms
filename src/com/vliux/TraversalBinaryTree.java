@@ -9,7 +9,7 @@ import java.util.Stack;
  */
 public class TraversalBinaryTree {
     public static void main(){
-        BinaryTreeNode n1 = new BinaryTreeNode(1, null, null);
+        /*BinaryTreeNode n1 = new BinaryTreeNode(1, null, null);
         BinaryTreeNode n2 = new BinaryTreeNode(2, null, null);
         BinaryTreeNode n3 = new BinaryTreeNode(3, null, null);
         BinaryTreeNode n4 = new BinaryTreeNode(4, null, null);
@@ -26,8 +26,54 @@ public class TraversalBinaryTree {
         inorder(n1);
         System.out.println();
         System.out.print("preorder: ");
-        preorder(n1);
+        preorder(n1);*/
+
+        BinaryTreeNode n10 = new BinaryTreeNode(10);
+        BinaryTreeNode n6 = new BinaryTreeNode(6);
+        BinaryTreeNode n4 = new BinaryTreeNode(4);
+        BinaryTreeNode n8 = new BinaryTreeNode(8);
+        n10.left = n6;
+        n6.left = n4;
+        n6.right = n8;
+
+        BinaryTreeNode n14 = new BinaryTreeNode(14);
+        BinaryTreeNode n12 = new BinaryTreeNode(12);
+        BinaryTreeNode n16 = new BinaryTreeNode(16);
+        n10.right = n14;
+        n14.left = n12;
+        n14.right = n16;
+        BinaryTreeNode list = transferToDoubleLinkedList(n10);
+        while(null != list){
+            System.out.print(list.value + " <-> ");
+            list = list.right;
+        }
+
     }
+
+    private static void inorderRecursively(final BinaryTreeNode root){
+        if(null == root) return;
+        if(root.left != null) inorderRecursively(root.left);
+        System.out.print(root.value + ", ");
+        if(root.right != null) inorderRecursively(root.right);
+    }
+
+    private static BinaryTreeNode transferToDoubleLinkedList(final BinaryTreeNode root){
+        BinaryTreeNode sentry = new BinaryTreeNode(Integer.MIN_VALUE);
+        _transferToDoubleLinkedList(root, sentry);
+        return sentry;
+    }
+
+    private static BinaryTreeNode _transferToDoubleLinkedList(final BinaryTreeNode root, BinaryTreeNode listTail){
+        if(null == root) return listTail;
+        if(root.left != null) listTail = _transferToDoubleLinkedList(root.left, listTail);
+        //System.out.print(root.value + ", ");
+        listTail.right = root;
+        root.left = listTail;
+        listTail = root;
+        if(root.right != null) listTail = _transferToDoubleLinkedList(root.right, listTail);
+        return listTail;
+    }
+
 
     public static void inorder(final BinaryTreeNode root){
         final Stack<BinaryTreeNode> stack = new Stack<>();

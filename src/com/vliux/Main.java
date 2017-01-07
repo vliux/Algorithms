@@ -3,7 +3,7 @@ package com.vliux;
 public class Main {
 
     public static void main(String[] args) {
-        TraversalBinaryTree.main();
+        ReverseSingleLinkedList.main();
     }
 
     private static void selection(){
