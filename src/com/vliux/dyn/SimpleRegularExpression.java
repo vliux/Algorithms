@@ -2,7 +2,9 @@ package com.vliux.dyn;
 
 /**
  * Created by vliux on 2017/8/30.
+ * From: Regular Expression Dynamic Programming
  * https://www.youtube.com/watch?v=l3hda49XcDE
+ *
  * Given a text and a pattern, check whether the text matches the pattern.
  * The pattern supports:
  * "." as any single char.
