@@ -1,6 +1,6 @@
 package com.vliux;
 
-import com.vliux.util.BinaryTreeNode;
+import com.vliux.util.TreeNode;
 
 import java.util.Stack;
 
@@ -9,13 +9,13 @@ import java.util.Stack;
  */
 public class TraversalBinaryTree {
     public static void main(){
-        /*BinaryTreeNode n1 = new BinaryTreeNode(1, null, null);
-        BinaryTreeNode n2 = new BinaryTreeNode(2, null, null);
-        BinaryTreeNode n3 = new BinaryTreeNode(3, null, null);
-        BinaryTreeNode n4 = new BinaryTreeNode(4, null, null);
-        BinaryTreeNode n5 = new BinaryTreeNode(5, null, null);
-        BinaryTreeNode n6 = new BinaryTreeNode(6, null, null);
-        BinaryTreeNode n7 = new BinaryTreeNode(7, null, null);
+        /*TreeNode n1 = new TreeNode(1, null, null);
+        TreeNode n2 = new TreeNode(2, null, null);
+        TreeNode n3 = new TreeNode(3, null, null);
+        TreeNode n4 = new TreeNode(4, null, null);
+        TreeNode n5 = new TreeNode(5, null, null);
+        TreeNode n6 = new TreeNode(6, null, null);
+        TreeNode n7 = new TreeNode(7, null, null);
         n1.left = n2;
         n2.left = n3;
         n3.right = n4;
@@ -28,21 +28,21 @@ public class TraversalBinaryTree {
         System.out.print("preorder: ");
         preorder(n1);*/
 
-        BinaryTreeNode n10 = new BinaryTreeNode(10);
-        BinaryTreeNode n6 = new BinaryTreeNode(6);
-        BinaryTreeNode n4 = new BinaryTreeNode(4);
-        BinaryTreeNode n8 = new BinaryTreeNode(8);
+        TreeNode n10 = new TreeNode(10);
+        TreeNode n6 = new TreeNode(6);
+        TreeNode n4 = new TreeNode(4);
+        TreeNode n8 = new TreeNode(8);
         n10.left = n6;
         n6.left = n4;
         n6.right = n8;
 
-        BinaryTreeNode n14 = new BinaryTreeNode(14);
-        BinaryTreeNode n12 = new BinaryTreeNode(12);
-        BinaryTreeNode n16 = new BinaryTreeNode(16);
+        TreeNode n14 = new TreeNode(14);
+        TreeNode n12 = new TreeNode(12);
+        TreeNode n16 = new TreeNode(16);
         n10.right = n14;
         n14.left = n12;
         n14.right = n16;
-        BinaryTreeNode list = transferToDoubleLinkedList(n10);
+        TreeNode list = transferToDoubleLinkedList(n10);
         while(null != list){
             System.out.print(list.value + " <-> ");
             list = list.right;
@@ -50,20 +50,20 @@ public class TraversalBinaryTree {
 
     }
 
-    private static void inorderRecursively(final BinaryTreeNode root){
+    private static void inorderRecursively(final TreeNode root){
         if(null == root) return;
         if(root.left != null) inorderRecursively(root.left);
         System.out.print(root.value + ", ");
         if(root.right != null) inorderRecursively(root.right);
     }
 
-    private static BinaryTreeNode transferToDoubleLinkedList(final BinaryTreeNode root){
-        BinaryTreeNode sentry = new BinaryTreeNode(Integer.MIN_VALUE);
+    private static TreeNode transferToDoubleLinkedList(final TreeNode root){
+        TreeNode sentry = new TreeNode(Integer.MIN_VALUE);
         _transferToDoubleLinkedList(root, sentry);
         return sentry;
     }
 
-    private static BinaryTreeNode _transferToDoubleLinkedList(final BinaryTreeNode root, BinaryTreeNode listTail){
+    private static TreeNode _transferToDoubleLinkedList(final TreeNode root, TreeNode listTail){
         if(null == root) return listTail;
         if(root.left != null) listTail = _transferToDoubleLinkedList(root.left, listTail);
         //System.out.print(root.value + ", ");
@@ -75,9 +75,9 @@ public class TraversalBinaryTree {
     }
 
 
-    public static void inorder(final BinaryTreeNode root){
-        final Stack<BinaryTreeNode> stack = new Stack<>();
-        BinaryTreeNode current = root;
+    public static void inorder(final TreeNode root){
+        final Stack<TreeNode> stack = new Stack<>();
+        TreeNode current = root;
 
         while (true){
             if(null != current) {
@@ -89,7 +89,7 @@ public class TraversalBinaryTree {
             }
 
             if(!stack.isEmpty()) {
-                BinaryTreeNode n = stack.pop();
+                TreeNode n = stack.pop();
                 System.out.print(n.value + ", ");
                 if(null != n.right) current = n.right;
                 else current = null;
@@ -97,9 +97,9 @@ public class TraversalBinaryTree {
         }
     }
 
-    public static void preorder(final BinaryTreeNode root){
-        final Stack<BinaryTreeNode> stack = new Stack<>();
-        BinaryTreeNode current = root;
+    public static void preorder(final TreeNode root){
+        final Stack<TreeNode> stack = new Stack<>();
+        TreeNode current = root;
 
         while (true){
             if(null != current) {
@@ -113,7 +113,7 @@ public class TraversalBinaryTree {
             }
 
             if(!stack.isEmpty()) {
-                BinaryTreeNode n = stack.pop();
+                TreeNode n = stack.pop();
                 if(null != n.right) current = n.right;
                 else current = null;
             }else return;
