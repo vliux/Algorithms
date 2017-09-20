@@ -1,4 +1,4 @@
-package com.vliux;
+package com.leetcode;
 
 /**
  * Created by vliux on 2017/9/6.
