@@ -4,7 +4,7 @@ package com.vliux;
  * Created by vliux on 12/30/16.
  */
 public class MergeLinkedLists {
-    public static void main(){
+    public static void main(String[] args){
         Node n1 = new Node(1);
         Node n2 = new Node(2);
         Node n3 = new Node(6);
@@ -29,7 +29,7 @@ public class MergeLinkedLists {
         m2.next = m3;
         m3.next = m4;
 
-        print(merge(n1, m1));
+        print(merge2(n1, m1));
     }
 
     private static void print(final Node n){
@@ -86,7 +86,28 @@ public class MergeLinkedLists {
         return newRoot;
     }
 
-    private static void appendToNew(final Node root, final Node current, final Node next){
+    public static Node merge2(Node head1, Node head2){
+        Node newRoot = null;
+        Node newCurr = null;
+        while(true){
+            Node n;
+            if(head1 != null && head2 != null){
+                n = (head1.data <= head2.data ? head1 : head2);
+            }else{
+                n = (null != head1 ? head1 : head2);
+                if(null == n) break;
+            }
 
+            if(n == head1) head1 = n.next;
+            else head2 = n.next;
+
+            if(null == newRoot){
+                newRoot = n;
+            }else {
+                newCurr.next = n;
+            }
+            newCurr = n;
+        }
+        return newRoot;
     }
 }

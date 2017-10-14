@@ -5,7 +5,7 @@ package com.vliux;
  */
 public class LongestPalindromicSubstr {
 
-    public static void main(){
+    public static void main(String[] args){
         lps2("kbububkaccabba");
         lps2("ab");
         lps2("yabbaycdbc");
