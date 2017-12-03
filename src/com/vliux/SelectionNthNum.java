@@ -41,12 +41,12 @@ public class SelectionNthNum {
             }
         }
         swap(array, storeIndex, right);
-        final StringBuilder sb = new StringBuilder("pivot(left=");
-        sb.append(left).append(", right=").append(right).append("\n  ");
-        for(int i = left; i <= right; i++)
-            sb.append(array[i]).append(", ");
-        sb.append("  pivot=").append(storeIndex);
-        System.out.println(sb.toString());
+        //final StringBuilder sb = new StringBuilder("pivot(left=");
+        //sb.append(left).append(", right=").append(right).append("\n  ");
+        //for(int i = left; i <= right; i++)
+        //    sb.append(array[i]).append(", ");
+        //sb.append("  pivot=").append(storeIndex);
+        //System.out.println(sb.toString());
         return storeIndex;
     }
 
