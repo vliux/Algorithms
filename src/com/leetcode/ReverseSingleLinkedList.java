@@ -15,9 +15,9 @@ public class ReverseSingleLinkedList {
         if(null == head) return null;
         ListNode p = head;
         ListNode c = p.next;
-        p.next = null; // [important] !!!
+        p.next = null; // [important] !!! otherwise a circle
         while(null != c){
-            ListNode cn = c.next;
+            ListNode cn = c.next; // we need the 3rd pointer, as c.next will be modified soon
             c.next = p;
             p = c;
             c = cn;
